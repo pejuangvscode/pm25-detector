@@ -1,29 +1,81 @@
-# Create T3 App
+# 📡 IoT PM2.5 Monitoring System
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+An end-to-end air quality monitoring system using **ESP32**, **PM2.5 sensor**, **MQTT**, and the **T3 App Stack**. It collects PM2.5 data, transmits it over MQTT, stores it in a PostgreSQL database using Prisma, and visualizes it through a modern web dashboard.
 
-## What's next? How do I make an app with this?
+---
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## 🚀 Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- 📟 PM2.5 sensor integration with ESP32  
+- 🛰 MQTT communication using Mosquitto broker  
+- 🧠 Backend listener that stores sensor data to the database  
+- 📊 Frontend dashboard built with Next.js + tRPC + Recharts  
+- 🛠 Built with the T3 Stack (TypeScript, Next.js, Prisma, tRPC, TailwindCSS)
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+---
 
-## Learn More
+## 📦 Tech Stack
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+| Layer           | Technology                                |
+|------------------|--------------------------------------------|
+| Microcontroller  | ESP32 + PMS5003 or SDS011 sensor           |
+| Communication    | MQTT (Mosquitto)                           |
+| Backend          | Node.js, tRPC, Prisma, PostgreSQL          |
+| Frontend         | Next.js (T3 Stack), TailwindCSS, Recharts  |
+| DB Hosting       | Supabase / Railway / Render                |
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+---
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+## 📁 Project Structure
+pm25-dashboard/
+├── scripts/
+│ ├── mqtt-listener.ts # Listens to MQTT and stores to DB
+│ └── simulator.js # Publishes fake sensor data
+├── src/
+│ └── pages/ # Web dashboard pages
+│ └── server/api/pm.ts # tRPC API for reading PM2.5 data
+├── prisma/
+│ └── schema.prisma # PMReading model
 
-## How do I deploy this?
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+---
+
+## 📊 Dashboard Preview
+
+> Displays real-time PM2.5 data from your sensor
+
+- Line chart using Recharts  
+- Auto-updating data via tRPC query  
+- Mobile-responsive with Tailwind
+
+---
+
+## 🧪 Development Tips
+
+- Use `Prisma Studio` to inspect the DB: `npx prisma studio`  
+- Customize MQTT topic and port in `mqtt-listener.ts`  
+- Add thresholds or alerts for high PM2.5 levels
+
+---
+
+## 📌 Future Improvements
+
+- ✅ Real-time updates using WebSocket or Supabase Realtime  
+- 📍 Add GPS/device metadata  
+- 🔔 Alert system (email/SMS if threshold exceeded)  
+- 📊 Export data to CSV or PDF reports  
+- 🧩 Multi-sensor support
+
+---
+
+## 🧑‍💻 Author
+
+**Teofilus Satria Rada Insani**  
+Student at Universitas Pelita Harapan — Informatics Department
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
