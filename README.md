@@ -70,8 +70,9 @@ pm25-dashboard/
 
 ## 🧑‍💻 Author
 
-**Teofilus Satria Rada Insani**  
-Student at Universitas Pelita Harapan — Informatics Department
+-
+-
+-
 
 ---
 
